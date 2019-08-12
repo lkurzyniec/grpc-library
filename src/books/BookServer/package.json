@@ -1,0 +1,16 @@
+{
+  "name": "bookserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Łukasz Kurzyniec",
+  "license": "ISC",
+  "dependencies": {
+    "google-protobuf": "^3.9.1",
+    "grpc": "^1.22.2"
+  }
+}

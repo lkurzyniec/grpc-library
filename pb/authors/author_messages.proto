@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option csharp_namespace = "HappyCode.GrpcSample.Authors.AuthorsMessages";
+option csharp_namespace = "HappyCode.GrpcSample.Author.AuthorMessages";
 
 message Author {
   int32 id = 1;
