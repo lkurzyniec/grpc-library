@@ -1,0 +1,1 @@
+protoc -I .\authors --csharp_opt=file_extension=.g.cs,base_namespace=HappyCode.GrpcSample.Authors.AuthorsMessages --plugin=protoc-gen-grpc=.\grpc_csharp_plugin.exe --csharp_out=..\src\Authors\AuthorsMessages --grpc_out=..\src\Authors\AuthorsMessages .\authors\authors_messages.proto

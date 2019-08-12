@@ -1,0 +1,1 @@
+protoc -I .\books -I .\authors --csharp_opt=file_extension=.g.cs,base_namespace=HappyCode.GrpcSample.Books.BooksMessages --plugin=protoc-gen-grpc=.\grpc_csharp_plugin.exe --csharp_out=..\src\Books\BooksMessages --grpc_out=..\src\Books\BooksMessages books\books_messages.proto

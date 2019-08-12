@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+option csharp_namespace = "HappyCode.GrpcSample.Authors.AuthorsMessages";
+
+message Author {
+  int32 id = 1;
+  string full_name = 2;
+  Gender gender = 3;
+}
+
+enum Gender {
+  UNKNOWN = 0;
+  MALE = 1;
+  FEMALE = 2;
+}
+
+// --------------------------------
+
+message AuthorRequest {
+  int32 id = 1;
+}
+
+message AuthorResponse {
+  Author author = 1;
+}
+
+message AuthorFilterRequest {
+  int32 id = 1;
+  string full_name = 2;
+  Gender gender = 3;
+}
+
+message AuthorFilterResponse {
+  Author author = 1;
+}
+
+service AuthorService {
+  rpc Get(AuthorRequest) returns (AuthorResponse);
+  rpc GetWithFilter(AuthorFilterRequest) returns (stream AuthorFilterResponse);
+}

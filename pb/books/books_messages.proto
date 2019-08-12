@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+option csharp_namespace = "HappyCode.GrpcSample.Books.BooksMessages";
+
+import "authors_messages.proto";
+import "google/protobuf/timestamp.proto";
+
+message Book {
+  int32 id = 1;
+  string isbn = 2;
+  string title = 3;
+
+  oneof author {
+    int32 author_id = 4;
+    Author author_obj = 5;
+  }
+
+  google.protobuf.Timestamp release_date = 6;
+}
+
+// --------------------------------------
+
+message BookRequest {
+  oneof book {
+    int32 id = 1;
+    string isbn = 2;
+  }
+}
+
+message BookResponse {
+  Book book = 1;
+}
+
+message BookFilterRequest {
+
+}
+
+message BookFilterResponse {
+  Book book = 1;
+}
+
+service BookService {
+  rpc Get(BookRequest) returns (BookResponse);
+  rpc GetWithFilter(BookFilterRequest) returns (stream BookFilterResponse);
+}
