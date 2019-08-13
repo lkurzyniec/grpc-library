@@ -1,6 +1,6 @@
 'use strict';
 
-const PORT = 9000;
+const PORT = 9001;
 
 const PROTO_PATH = '../../../pb/authors/author_messages.proto';
 
@@ -11,11 +11,7 @@ const serviceDef = grpc.load(PROTO_PATH);
 
 const cert = fs.readFileSync('../../../cert/ca.crt'),
       clientCert = fs.readFileSync('../../../cert/client.crt'),
-      clientKey = fs.readFileSync('../../../cert/client.key'),
-      certKeyPair = {
-        'private_key': clientKey,
-        'cert_chain': clientCert
-      };
+      clientKey = fs.readFileSync('../../../cert/client.key');;
 const creds = grpc.credentials.createSsl(cert, clientKey, clientCert);
 const client = new serviceDef.AuthorService(`LKURZYNIEC-WRO:${PORT}`, creds);
 

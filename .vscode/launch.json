@@ -1,0 +1,61 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "BookClient",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build BookClient",
+            "program": "${workspaceFolder}/src/books/BookClient/bin/Debug/netcoreapp2.2/BookClient.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/books/BookClient",
+            "stopAtEntry": false,
+            "console": "externalTerminal"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "BookServer",
+            "program": "${workspaceFolder}/src/books/BookServer/server.js",
+            "cwd": "${workspaceFolder}/src/books/BookServer/",
+        },
+        {
+            "name": "AuthorServer",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build AuthorServer",
+            "program": "${workspaceFolder}/src/authors/AuthorServer/bin/Debug/netcoreapp2.2/AuthorServer.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/authors/AuthorServer",
+            "stopAtEntry": false,
+            "console": "externalTerminal"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "AuthorClient",
+            "program": "${workspaceFolder}/src/authors/AuthorClient/client.js",
+            "cwd": "${workspaceFolder}/src/authors/AuthorClient/",
+            "args": ["2"]
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Book Server & Client",
+            "configurations": [
+                "BookClient",
+                "BookServer"
+            ]
+        },
+        {
+            "name": "Author Server & Client",
+            "configurations": [
+                "AuthorServer",
+                "AuthorClient"
+            ]
+        }
+    ]
+}
