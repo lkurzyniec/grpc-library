@@ -4,12 +4,12 @@ syntax = "proto3";
 option csharp_namespace = "HappyCode.GrpcSample.Book.BookMessages";
 
 // C#
-// import "author_messages.proto";
-// import "protobuf/timestamp.proto";
+import "author_messages.proto";
+import "protobuf/timestamp.proto";
 
 // JS
-import "../authors/author_messages.proto";
-import "../google/protobuf/timestamp.proto";
+// import "../authors/author_messages.proto";
+// import "../google/protobuf/timestamp.proto";
 
 message Book {
   int32 id = 1;
