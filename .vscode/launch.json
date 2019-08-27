@@ -46,15 +46,15 @@
         {
             "name": "Book Server & Client",
             "configurations": [
+                "BookServer",
                 "BookClient",
-                "BookServer"
             ]
         },
         {
             "name": "Author Server & Client",
             "configurations": [
                 "AuthorServer",
-                "AuthorClient"
+                "AuthorClient",
             ]
         }
     ]

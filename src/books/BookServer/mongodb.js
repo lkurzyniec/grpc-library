@@ -17,13 +17,13 @@ client.connect(function (err) {
 
     db = client.db(dbName);
 
-    var col = db.collection('books');
-    col.countDocuments({}, function (err, count) {
+    const books = db.collection('books');
+    books.countDocuments({}, function (err, count) {
         if (err) {
             throw err;
         }
         if (count < 1) {
-            col.insertMany([
+            books.insertMany([
                 {
                     id: 1,
                     isbn: '123',
@@ -46,18 +46,18 @@ client.connect(function (err) {
                 if (err) {
                     throw err;
                 }
-                console.log(result);
+                //console.log(result);
             });
         }
     });
 
-    col = db.collection('authors');
-    col.countDocuments({}, function (err, count) {
+    const authors = db.collection('authors');
+    authors.countDocuments({}, function (err, count) {
         if (err) {
             throw err;
         }
         if (count < 1) {
-            col.insertMany([
+            authors.insertMany([
                 {
                     id: 1,
                     full_name: 'John Smith',
@@ -72,7 +72,7 @@ client.connect(function (err) {
                 if (err) {
                     throw err;
                 }
-                console.log(result);
+                //console.log(result);
             });
         }
     });
